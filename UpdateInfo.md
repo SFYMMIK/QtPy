@@ -1,9 +1,11 @@
-Update 1.3:
+Update 1.4:
 
-Compatibility: X.org bugs are now fixed
+Dir: Added directory surfing and opening back and i fixed it
 
-Update Changes: Realtime saving is now possible but only with the save button not Ctrl + s sadly
+Notes: Notes has been removed cuz' it was stupid for them to be there
 
-Update Forgotten Changes: i Forgot to change the version info from 1.2 to 1.3 in the program but it doesn't affect the usage in any way
+Clock: a time clock has been added
+
+HTML: A little html help was added
 
 Thanks To Everyones Support!
