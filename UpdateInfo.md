@@ -1,11 +1,9 @@
-Update 1.4:
+Update 1.5:
 
-Dir: Added directory surfing and opening back and i fixed it
+Added: i have added a feature like in notepad++ where you can open your html file in your browser, and i have also added so you can open files from the directory
 
-Notes: Notes has been removed cuz' it was stupid for them to be there
+bugfix: None
 
-Clock: a time clock has been added
-
-HTML: A little html help was added
+Removed: None
 
 Thanks To Everyones Support!
