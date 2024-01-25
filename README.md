@@ -1,6 +1,7 @@
 ![Logo](logo.png)
 
 Warning Do Not Downloa The smIDE .EXE file it won't work!!!
+and i am now trying to fixx it!!!
 # smIDE Overview
 
 ## Introduction
