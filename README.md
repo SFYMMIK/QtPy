@@ -15,19 +15,21 @@ QtPy IDE is a lightweight Integrated Development Environment (IDE) developed in 
 - **Just Install the .exe and open it**
 
 ## Linux
-1. **download the 'QtPy_IDE_1.6'**
-2. **Then Place It In Your Desired Directory**
-3. **Make It Actually Executable, Example:**
+1. **Download QtPy, Example:**
    ```shell
-   sfymmik@SFYM ~ $ cd /Path/To/Your/Directory
+   sfymmik@SFYM ~ $ git clone https://github.com/SFYMMIK/QtPy.git
+   ```
+2. **Make It Actually Executable, Example:**
+   ```shell
+   sfymmik@SFYM ~ $ cd QtPy
    ```
    ```shell
-   sfymmik@SFYM ~/home/sfymmik/Path/To/Your/Direcotry $ chmod +x QtPy_IDE_1.6
+   sfymmik@SFYM ~/QtPy $ chmod +x QtPy_IDE_1.6
    ```
    ```shell
-   sfymmik@SFYM ~/home/sfymmik/Path/To/Your/Direcotry $ ./QtPy_IDE_1.6
+   sfymmik@SFYM ~/QtPy $ ./QtPy_IDE_1.6
    ```
-4. **After That You Can Use QtPy IDE!**
+3. **After That You Can Use QtPy IDE!**
 
 ## Usage (QtPy)
 
