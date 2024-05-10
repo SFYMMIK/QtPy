@@ -11,26 +11,6 @@ QtPy IDE is a lightweight Integrated Development Environment (IDE) developed in 
 - **Dynamic Tabs:** Tabs dynamically update based on the selected tab and file name.
 - **Browser Preview:** View HTML files directly in your default web browser.
 
-## Windows
-- **Just Install the .exe and open it**
-
-## Linux
-1. **Download QtPy, Example:**
-   ```shell
-   sfymmik@SFYM ~ $ git clone https://github.com/SFYMMIK/QtPy.git
-   ```
-2. **Make It Actually Executable, Example:**
-   ```shell
-   sfymmik@SFYM ~ $ cd QtPy
-   ```
-   ```shell
-   sfymmik@SFYM ~/QtPy $ chmod +x QtPy_IDE_1.6
-   ```
-   ```shell
-   sfymmik@SFYM ~/QtPy $ ./QtPy_IDE_1.6
-   ```
-3. **After That You Can Use QtPy IDE!**
-
 ## Usage (QtPy)
 
 1. **Open/Save:**
