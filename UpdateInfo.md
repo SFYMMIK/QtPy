@@ -1,7 +1,5 @@
-Update 1.7:
+Update 1.8:
 
-Added: A Window Splitter, Go To The Prev/Next Directory, Performance Improved
+Added: Text Resizer From 1 To 40.
 
-bugfix: Saves Now Works
-
-Thanks To Everyones Support!
+bugfix: Directory Now Has A Bigger History So You Can Go Back To Other Directories All You Want.

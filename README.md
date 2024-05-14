@@ -1,66 +1,43 @@
 ![Logo](logo.png)
 
+# IMPORTANT!
+QtPy IDE's Version 1.8 Is The Last Version Of QtPy IDE, This Project Has Just Been Too Hard For Me As I'm The Only Programmer Of QtPy IDE (Besides My Friend That Doesn't Know Python) If Anyone Has Been Using This IDE, Thank You.
+
 # QtPy IDE Overview
 
-## Introduction
-QtPy IDE is a lightweight Integrated Development Environment (IDE) developed in Python using the PyQt5 library. It offers a simple and intuitive interface for coding in various programming languages.
+# QtPy IDE 1.8
 
-## Features
-- **Tabbed Interface:** Easily manage and switch between multiple files with a tabbed interface.
-- **File Operations:** Create, open, save, and save as files effortlessly.
-- **Dynamic Tabs:** Tabs dynamically update based on the selected tab and file name.
-- **Browser Preview:** View HTML files directly in your default web browser.
+## Introduction:
+QtPy IDE is a simple Integrated Development Environment (IDE) built using PyQt5 for Python developers. It provides a user-friendly interface for writing, editing, and running code files. This README file provides an overview of the features, functionality, and usage instructions for the QtPy IDE.
 
-## Usage (QtPy)
+## Features:
+1. **Tabbed Interface:** QtPy IDE offers a tabbed interface for opening and editing multiple files simultaneously. Each tab represents a separate file being edited.
+2. **File Management:** Users can open, save, and save files with ease using the file menu or toolbar options. The IDE supports various file formats.
+3. **Dark Mode:** QtPy IDE features a dark mode interface for reduced eye strain and improved readability in low-light environments.
+4. **Directory Navigation:** Users can navigate through directories, open files, and folders directly from within the IDE, simplifying project management.
+5. **Run Files:** The IDE allows users to run HTML files directly in the default web browser. It provides options for running Python files manually.
+6. **Search Functionality:** QtPy IDE includes a search feature that enables users to search the web using their default browser directly from the IDE.
+7. **Text Size Adjustment:** Users can adjust the text size for better readability using the slider provided in the toolbar.
 
-1. **Open/Save:**
-   - Open existing files and edit them in the chosen tab.
-   - Save updates or use 'Save As' to create a new file from the current one.
+## Installation:
+1. Ensure you have Python installed on your system.
+2. Install the required dependencies:
+```shell
+pip install pyqt5
+```
+3. Download the QtPy IDE script.
+4. Run the script using Python 3.8 Or Higher
 
-2. **Create New Tab:**
-   - Click "+ Create New Tab +" to create a new tab.
-   - Choose a name
-   - And code!
+## Usage:
+1. **Opening Files:** Use the "Open" option from the file menu or toolbar to open existing files.
+2. **Creating New Tabs:** Click on "Create New Tab" in the toolbar to create a new tab for editing.
+3. **Saving Files:** Use the "Save" or "Save As" options to save your changes to files.
+4. **Running Files:** Choose the "Run" option from the menu to run HTML files in the default browser.
+5. **Navigating Directories:** Click on "Open Directory" in the toolbar to navigate through directories and open files and folders.
+6. **Adjusting Text Size:** Use the slider in the toolbar to adjust the text size for better readability.
+7. **Searching:** Enter your search query in the search box and click "Search" to search the web using your default browser.
 
-3. **Close Tabs:**
-   - Click the 'x' button on a tab. Confirm to close.
+## License:
+QtPy IDE is Not Licensed Anymore So Feel Free To Copy This Code And Modify It But Please Atleast Mention My Name (Szymon Grajner) As The 1st Creator.
 
-4. **Browser Preview:**
-   - Run HTML files to view them directly in your default web browser when clicking the 'Run' button.
-
-## Feedback and Support
-For feedback, suggestions, or support, visit [official website](https://sfymmik.web.fc2.com) or contact on Discord: ball_sx.
-
-Thank you for using QtPy IDE!
-
----
-
-## Code Overview
-
-### Classes
-- `QtPy`: Main class for the QtPy IDE application, providing file management and UI functionalities.
-
-### Functions
-- `create_menu`: Creates menu bar for file operations and running files.
-- `create_toolbar`: Sets up toolbar with buttons for file operations and HTML tags display.
-- `create_notebook`: Initializes tabbed notebook for programming languages.
-- `create_directory_opener`: Creates button to open a directory and list files.
-- `open_directory`: Opens directory and populates the file list.
-- `refresh_file_list`: Refreshes the file list displayed in the directory opener.
-- `open_selected_file`: Opens selected file from file list in chosen tab.
-- `open_file`: Opens existing file and displays content in current tab.
-- `save_file`: Saves content of current tab to a file.
-- `save_file_as`: Saves content of current tab with new name or extension.
-- `run_file`: Runs a selected file, opening HTML files in the default web browser.
-- `create_new_tab`: Creates a new tab with a specified name and language.
-- `search`: Performs a web search based on the entered query.
-- `close_all_tabs`: Closes all tabs in the IDE.
-- `close_tab`: Closes the selected tab.
-- `close_directory`: Closes the currently opened directory.
-- `remove_unsaved_indicator`: Removes the unsaved indicator from tab names.
-- `update_tab_counts`: Updates the count of tabs.
-- `set_style_dark`: Sets the dark mode style for the IDE.
-- `get_dark_palette`: Returns a dark color palette for the dark mode.
-
-### Main Section
-- Initializes the application, sets up UI elements, and runs the main event loop.
+Thank You For Reading This Documentation, Sincerely Szymon Grajner.

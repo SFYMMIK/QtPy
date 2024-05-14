@@ -3,7 +3,7 @@ import webbrowser
 from PyQt5.QtGui import QIcon, QColor, QPalette
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QAction, QFileDialog, QMessageBox, QTextEdit,
-    QVBoxLayout, QWidget, QTabWidget, QPushButton, QLabel, QScrollArea, QInputDialog,
+    QVBoxLayout, QWidget, QTabWidget, QPushButton, QLabel, QSlider ,QScrollArea, QInputDialog,
     QGridLayout, QLineEdit, QSplitter
 )
 from PyQt5.QtCore import Qt
@@ -15,7 +15,7 @@ class QtPy(QMainWindow):
         # Set dark mode style
         self.set_style_dark()
 
-        self.setWindowTitle("QtPy IDE 1.7")
+        self.setWindowTitle("QtPy IDE 1.8")
         self.setGeometry(100, 100, 1350, 750)
         self.tab_counts = {}
         self.current_extension = ""
@@ -28,13 +28,14 @@ class QtPy(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        self.return_button = QPushButton("Return to Previous Directory")
+        self.return_button = QPushButton("Return To The Previous Directory")
         self.return_button.clicked.connect(self.return_to_previous_directory)
-        self.return_button.setVisible(False)  # Initially hide the button
+        self.return_button.setVisible(True)  # Initially hide the button
+        self.return_button.setMaximumWidth(169)
 
-        self.next_button = QPushButton("Return to Next Directory")
+        self.next_button = QPushButton("Go To The Next Directory")
         self.next_button.clicked.connect(self.return_to_next_directory)
-        self.next_button.setVisible(False)  # Initially hide the button
+        self.next_button.setVisible(True)  # Initially hide the button
 
         self.create_menu()
         self.create_toolbar()
@@ -44,13 +45,18 @@ class QtPy(QMainWindow):
         self.search_box = QLineEdit()
         self.search_button = QPushButton('Search')
         self.search_button.clicked.connect(self.search)
+        self.search_button.setMaximumWidth(120)
+        self.search_button.setMinimumWidth(120)
 
         central_widget_layout = QGridLayout()
         self.splitter = QSplitter(Qt.Horizontal)
         self.splitter.addWidget(self.tab_widget)
         self.splitter.addWidget(self.scroll_area)
+
+    # Adjust column span for the buttons to bring them closer
         central_widget_layout.addWidget(self.return_button, 0, 0, 1, 1)
         central_widget_layout.addWidget(self.next_button, 0, 1, 1, 1)
+
         central_widget_layout.addWidget(self.splitter, 1, 0, 1, 2)
         central_widget_layout.addWidget(self.search_box, 2, 0, 1, 1)
         central_widget_layout.addWidget(self.search_button, 2, 1, 1, 1)
@@ -81,7 +87,7 @@ class QtPy(QMainWindow):
         file_menu.addAction(exitAct)
 
         run_menu = menu_bar.addMenu('Run')
-        runAct = QAction(QIcon('icons/run.png'), 'Run', self)
+        runAct = QAction(QIcon('icons/run.png'), 'Run (html)', self)
         runAct.triggered.connect(self.run_file)
         run_menu.addAction(runAct)
 
@@ -112,14 +118,29 @@ class QtPy(QMainWindow):
         open_directory_button.triggered.connect(self.open_directory)
         self.toolbar.addAction(open_directory_button)
 
-        close_directory_button = QAction('Kill QtPy', self)
-        close_directory_button.triggered.connect(self.close_directory)
-        self.toolbar.addAction(close_directory_button)
+        label = QLabel("Text Size:")
+        self.toolbar.addWidget(label)
+
+        self.slider = QSlider(Qt.Horizontal)
+        self.slider.setMinimum(1)  # Set minimum font size
+        self.slider.setMaximum(40)  # Set maximum font size
+        self.slider.setValue(12)  # Set initial font size
+        self.toolbar.addWidget(self.slider)
+        self.slider.setMaximumWidth(100)
+
+        # Connect slider valueChanged signal to change_font_size slot
+        self.slider.valueChanged.connect(self.change_font_size)
 
     def create_notebook(self):
         self.tab_widget = QTabWidget()
         self.tab_widget.setTabsClosable(True)  # Allow closing tabs
         self.tab_widget.tabCloseRequested.connect(self.close_tab)
+
+    def change_font_size(self, size):
+        # Slot to change the font size of the text
+        font = self.tab_widget.font()
+        font.setPointSize(size)
+        self.tab_widget.setFont(font)
 
     def create_directory_opener(self):
         self.scroll_area = QScrollArea()
@@ -153,7 +174,7 @@ class QtPy(QMainWindow):
                     folder_list.append(entry)
 
         for folder_name in folder_list:
-            folder_button = QPushButton(folder_name + " (Folder)")
+            folder_button = QPushButton(folder_name + "  (Folder)")
             folder_button.clicked.connect(lambda checked, name=folder_name: self.open_folder_confirmation(name))
             self.scroll_layout.addWidget(folder_button)
 
@@ -162,11 +183,11 @@ class QtPy(QMainWindow):
             file_button.clicked.connect(lambda checked, name=file_name: self.open_selected_file(name))
             self.scroll_layout.addWidget(file_button)
 
-    def open_folder_confirmation(self, folder_name):
-        confirmation = QMessageBox.question(self, 'Confirmation', f"Do you want to open the folder '{folder_name}'?",
-                                            QMessageBox.Yes | QMessageBox.No)
-        if confirmation == QMessageBox.Yes:
-            self.open_folder(folder_name)
+    def open_folder(self, folder_name):
+        folder_path = os.path.join(self.directory_path, folder_name)
+        self.previous_directories.append(self.directory_path)  # Add current directory to previous_directories
+        self.directory_path = folder_path
+        self.refresh_file_list()
 
     def open_selected_file(self, file_name):
         file_path = os.path.join(self.directory_path, file_name)
